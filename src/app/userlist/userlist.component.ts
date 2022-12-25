@@ -46,7 +46,10 @@ export class UserlistComponent implements OnInit {
       this.ngOnInit()
     })
 
+  }
 
+  edit(){
+    
   }
 
 

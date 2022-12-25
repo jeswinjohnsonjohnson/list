@@ -19,19 +19,19 @@ export class UserdetailsComponent implements OnInit {
   email1: string = '';
   status1: string = '';
 
-  constructor(private http: HttpClient, private route: Router, private service: YService,) { }
+
+  constructor(private http: HttpClient, private route: Router, private service: YService, private rou: ActivatedRoute) { }
 
   ngOnInit(): void {
-        
-    // this.service.edit(this.rou.snapshot.params['id']).subscribe((result=>{
-    //   this.id1=result.id
-    //   this.name1=result.name
-    //   this.email1=result.email
-    //   this.status1=result.status
+    this.service.getone(this.rou.snapshot.params['id']).subscribe((result => {
+      this.id1 = result.id
+      this.name1 = result.name
+      this.email1 = result.email
+      this.status1 = result.status
 
-    // }))
-    
-    
+    }))
+
+
   }
 
 
@@ -52,14 +52,22 @@ export class UserdetailsComponent implements OnInit {
   }
 
 
-  cancel(){
-   
+  cancel() {
+
   }
 
 
-  update(){
+  update() {
 
-
+    this.taskObj.id = this.id1
+    this.taskObj.name = this.name1
+    this.taskObj.email = this.email1
+    this.taskObj.status = this.status1
+    console.log(this.taskObj);
+    this.service.updateit(this.taskObj).subscribe(res => {
+      alert('updated')
+      this.route.navigateByUrl('userlist')
+    })
   }
 
 

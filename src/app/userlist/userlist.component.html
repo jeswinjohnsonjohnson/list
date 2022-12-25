@@ -35,7 +35,7 @@
           <td>{{task.name}}</td>
           <td>{{task.email}}</td>
           <td>{{task.status}}</td>
-          <td>&nbsp;&nbsp;<button routerLink="/userdetails/{{task.id}}" class='btn btn-success'>Edit</button> &nbsp;&nbsp;
+          <td>&nbsp;&nbsp;<button routerLink="/userdetails/{{task.id}}" (click)="edit()" class='btn btn-success'>Edit</button> &nbsp;&nbsp;
             <button  (click)="deleteit(task.id)" class='btn btn-danger'>Delete</button>
           </td>
 

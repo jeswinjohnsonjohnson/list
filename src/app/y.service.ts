@@ -36,21 +36,20 @@ export class YService {
   
 
  
-  // edit(id:any):Observable<Task>{
-  //   return this.http.get<any>(this.serviceURL+'/'+id)
-
-
-  // }
-
-
-
+  getone(id:any):Observable<Task>{
+    return this.http.get<any>(this.serviceURL+'/'+id)
 
   }
   
+
+  updateit(task:Task):Observable<Task>{
+    return this.http.patch<Task>(this.serviceURL+'/'+task.id,task)
+
+  }
 
  
 
 
 
-
+}
 
