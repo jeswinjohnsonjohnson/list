@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { YService } from '../y.service';
 import { Task } from 'src/app/model/task'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-userdetails',
@@ -18,10 +19,18 @@ export class UserdetailsComponent implements OnInit {
   email1: string = '';
   status1: string = '';
 
-  constructor(private http: HttpClient, private route: Router, private service: YService) { }
+  constructor(private http: HttpClient, private route: Router, private service: YService,) { }
 
   ngOnInit(): void {
         
+    // this.service.edit(this.rou.snapshot.params['id']).subscribe((result=>{
+    //   this.id1=result.id
+    //   this.name1=result.name
+    //   this.email1=result.email
+    //   this.status1=result.status
+
+    // }))
+    
     
   }
 
@@ -45,6 +54,12 @@ export class UserdetailsComponent implements OnInit {
 
   cancel(){
    
+  }
+
+
+  update(){
+
+
   }
 
 

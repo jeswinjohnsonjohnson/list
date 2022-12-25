@@ -29,21 +29,26 @@ export class YService {
 
 
 
-  Deleteit(task:Task):Observable<Task>{
-    return this.http.delete<Task>(this.serviceURL+'/'+task.id)
+  Deleteit(id:any):Observable<Task>{
+    return this.http.delete<any>(this.serviceURL+'/'+id)
 
   }
   
 
-  getcurrentdata(id:any){
-    return this.http.get(this.serviceURL+'/'+id)
-  }
+ 
+  // edit(id:any):Observable<Task>{
+  //   return this.http.get<any>(this.serviceURL+'/'+id)
+
+
+  // }
+
 
 
 
   }
   
 
+ 
 
 
 

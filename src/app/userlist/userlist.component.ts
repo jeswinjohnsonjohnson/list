@@ -14,7 +14,7 @@ import { Task } from '../model/task';
 export class UserlistComponent implements OnInit {
   details: any = []
 
-  TT: any = []
+  updated:any
 
   constructor(private Route: Router, private http: HttpClient, private service: YService) { }
 
@@ -27,7 +27,7 @@ export class UserlistComponent implements OnInit {
 
 
   add() {
-    this.Route.navigateByUrl('userdetails')
+    this.Route.navigateByUrl('userdetails/:id')
   }
 
 
@@ -40,13 +40,15 @@ export class UserlistComponent implements OnInit {
 
 
 
-  deleteit(etask: Task) {
-    this.service.Deleteit(etask).subscribe(res => {
+  deleteit(id:any) {
+    this.service.Deleteit(id).subscribe(res => {
       alert('deleted')
       this.ngOnInit()
     })
 
+
   }
+
 
 
 
