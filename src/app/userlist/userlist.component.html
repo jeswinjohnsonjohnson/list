@@ -1,0 +1,48 @@
+<div class="row container-fluid">
+  <div class="col-2" style=" width: 200px; margin-top: 1px; background-color: rgb(77, 218, 218);;">
+    <a style="text-decoration: none;" routerLink="/home">
+      <h4 style="color: white; padding-top: 50px; ">home</h4><br>
+    </a>
+    <a style="text-decoration: none;" routerLink="/userlist">
+      <h4 style="color: white; ">User</h4>
+    </a>
+  </div>
+
+
+
+
+  <div class="col-10 container">
+    <br>
+    <h1 style="font-size: x-large;">User List</h1>
+
+
+    <Button (click)="add()" class="btn btn-primary">New user</Button>
+    <br><br>
+
+    <table style="width:100% ">
+      <tr>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </table>
+    <div *ngFor="let task of details">
+      <table style="width:100% ">
+        <tr>
+          <td>{{task.id}}</td>
+          <td>{{task.name}}</td>
+          <td>{{task.email}}</td>
+          <td>{{task.status}}</td>
+          <td>&nbsp;&nbsp;<button class='btn btn-success'>Edit</button> &nbsp;&nbsp;
+            <button (click)="deleteit(task)" class='btn btn-danger'>Delete</button>
+          </td>
+
+        </tr>
+
+      </table>
+    </div>
+
+  </div>
+</div>
