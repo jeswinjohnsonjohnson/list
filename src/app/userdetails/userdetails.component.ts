@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { YService } from '../y.service';
 import { Task } from 'src/app/model/task'
 import { ActivatedRoute } from '@angular/router';
+import { NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-userdetails',
@@ -18,20 +19,20 @@ export class UserdetailsComponent implements OnInit {
   name1: string = '';
   email1: string = '';
   status1: string = '';
-
-
+  color = "grey";
+  id:any=''
   constructor(private http: HttpClient, private route: Router, private service: YService, private rou: ActivatedRoute) { }
 
   ngOnInit(): void {
+  
+    this.id=this.rou.snapshot.params['id']
     this.service.getone(this.rou.snapshot.params['id']).subscribe((result => {
       this.id1 = result.id
       this.name1 = result.name
       this.email1 = result.email
       this.status1 = result.status
-
+    console.log(result.id);
     }))
-
-
   }
 
 
@@ -47,6 +48,7 @@ export class UserdetailsComponent implements OnInit {
     this.service.addTask(this.taskObj).subscribe(res => {
       alert('added')
       this.route.navigateByUrl('userlist')
+      
     })
 
   }
@@ -70,6 +72,21 @@ export class UserdetailsComponent implements OnInit {
     })
   }
 
+  backycolor() {
+    if (this.status1 == "Active") {
+      this.color = "green";
+    }
+    else {
+      this.color = "red"
+    }
+  }
+
+
+
+
+
+
 
 }
+
 
