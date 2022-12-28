@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { YService } from '../y.service';
 import { Task } from 'src/app/model/task'
 import { ActivatedRoute } from '@angular/router';
-import { NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-userdetails',
@@ -19,6 +18,7 @@ export class UserdetailsComponent implements OnInit {
   name1: string = '';
   email1: string = '';
   status1: string = '';
+
   color = "grey";
   id:any=''
   constructor(private http: HttpClient, private route: Router, private service: YService, private rou: ActivatedRoute) { }

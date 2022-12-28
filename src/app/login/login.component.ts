@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   LoginTo() {
    
      if(this.name="jeswin" && this.password=="asdf"){
-      this.route.navigateByUrl('home')
+      this.route.navigateByUrl('userlist')
      }
      else{
       alert('invalid')

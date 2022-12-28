@@ -29,14 +29,14 @@ export class YService {
 
 
 
-  Deleteit(id:any):Observable<Task>{
+  Deleteit(id:any):Observable<any>{
     return this.http.delete<any>(this.serviceURL+'/'+id)
 
   }
   
 
  
-  getone(id:any):Observable<Task>{
+  getone(id:any):Observable<any>{
     return this.http.get<any>(this.serviceURL+'/'+id)
 
   }
